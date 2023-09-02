@@ -68,7 +68,6 @@ class UserController{
 
             const NewEmail = req.body.email;
             const {id, email} = req.user;
-            console.log(id);
             if(NewEmail === email)
                 return next(ApiError.BadRequest('It is already youre email'))
 
@@ -87,7 +86,6 @@ class UserController{
     async changeUsername(req, res, next){
         try {
             const {username, id} = req.user;
-            console.log('req.user', req.user);
             const newUsername = req.body.username;
             if(newUsername === username)
                 return next(ApiError.BadRequest('It is already your loggin'));

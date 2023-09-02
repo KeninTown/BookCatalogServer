@@ -133,7 +133,6 @@ class UserService{
     //добавление любимой книги пользователя
     async chooseFavoriteBook(bookId, userId){
         const isFavorite = await FavoriteBookModel.findOne({bookId, userId});
-        console.log(isFavorite);
         if(isFavorite)
             throw ApiError.BadRequest('Book already in favorites');
         await FavoriteBookModel.create({bookId, userId});

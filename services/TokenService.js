@@ -48,7 +48,6 @@ class TokenService{
     async validateResetToken(resetToken){
   
         const token = await ResetTokenModel.findOne({value:resetToken});
-        console.log(token);
         if(!token)
             throw ApiError.BadRequest('Invalid reset token');
 

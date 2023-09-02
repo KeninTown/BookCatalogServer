@@ -46,7 +46,6 @@ class CommentService{
 
     async addLike(commentId, userId){
         let isExist = await LikeModel.findOne({commentId, userId})
-        console.log(isExist)
         if(isExist)
             throw ApiError.BadRequest("Like already exist")
 

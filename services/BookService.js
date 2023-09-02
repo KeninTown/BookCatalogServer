@@ -29,10 +29,8 @@ class BookService{
                 query = {$or:correctedBooksId}
             }
             else{
-                console.log(genres, author)
                 const genresArr = genres?.split('-');
                 const authorsArr = author?.split('-');
-                console.log(genresArr, authorsArr)
                 let genreQuery
                 let authorQuery
                 
