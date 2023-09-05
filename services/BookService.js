@@ -70,14 +70,6 @@ class BookService{
         
         return {...book._doc};  
     }
-
-    async getFavoriteBook(bookId){
-        const book = await BookModel.findById(bookId).select(this.selectParams);
-        if(!book)
-            throw ApiError.BadRequest('No book with such id');
-        
-        return {...book._doc};
-    }
 }
 
 export default new BookService();

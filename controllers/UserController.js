@@ -140,8 +140,7 @@ class UserController{
     async getFavoriteBook(req, res, next){
         try {
             const userId = req.params.id;
-            const {limit, page} = req.body;
-            const favoriteBooks = await UserService.getFavoriteBook(limit, page, userId);
+            const favoriteBooks = await UserService.getFavoriteBook(userId);
             res.status(200).json(favoriteBooks);
         } catch (error) {
             next(error)
