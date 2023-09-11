@@ -23,6 +23,7 @@ class AuthController{
             const {email, password} = req.body;
             const userData = await AuthService.login(email, password);
             res.cookie('refreshToken', userData.refreshToken, {maxAge:900000, httpOnly:true});
+            res.setHeader('Access-Control-Allow-Origin', 'https://unstate.github.io/update-book-catalog/');
             res.json(userData);
         } catch (error) {
             next(error);
