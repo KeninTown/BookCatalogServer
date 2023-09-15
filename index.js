@@ -10,13 +10,13 @@ import errorMiddleware from "./middleware/errorMiddleware.js";
 
 const app = Express();
 
+app.use(cors({
+    // credentials: true,
+    origin: process.env.CLIENT_URL
+}))
+console.log(process.env.CLIENT_URL)
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
-// app.use(cors({
-//     credentials: true,
-//     origin: process.env.CLIENT_URL
-// }))
-console.log(process.env.CLIENT_URL)
 app.use(cookieParser());
 app.use('/api', router);
 
