@@ -22,8 +22,10 @@ class AuthController{
         try {
             const {email, password} = req.body;
             const userData = await AuthService.login(email, password);
+            console.log("")
             res.cookie('refreshToken', userData.refreshToken, {maxAge:900000, httpOnly:true});
-            res.setHeader('Access-Control-Allow-Origin', process.env.CLIENT_URL);
+            // res.setHeader('Access-Control-Allow-Origin', process.env.CLIENT_URL);
+            
             console.log(res.headers)
             res.json(userData);
         } catch (error) {

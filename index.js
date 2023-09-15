@@ -11,7 +11,7 @@ import errorMiddleware from "./middleware/errorMiddleware.js";
 const app = Express();
 
 app.use(cors({
-    // credentials: true,
+    credentials: true,
     origin: process.env.CLIENT_URL
 }))
 console.log(process.env.CLIENT_URL)
