@@ -10,7 +10,7 @@ class TokenService{
 
     //создание пары токенов
     generateToken(payload){
-        const accessToken = jwt.sign(payload, process.env.JWT_ACCES_SECRET, {expiresIn:'30d'});
+        const accessToken = jwt.sign(payload, process.env.JWT_ACCES_SECRET, {expiresIn:'15m'});
         const refreshToken = jwt.sign(payload, process.env.JWT_REFRESH_SECRET, {expiresIn:'30d'});
 
         return {accessToken, refreshToken};
